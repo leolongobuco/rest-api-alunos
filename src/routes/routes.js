@@ -1,5 +1,5 @@
 import { Router } from "express";
-import homeController from "../controllers/HomeController";
+import alunoController from "../controllers/AlunoController";
 import logRequests from "../middlewares/logRequests";
 
 const router = new Router();
@@ -7,7 +7,6 @@ const router = new Router();
 router.use(logRequests);
 
 //Rotas Home
-router.get("/", homeController.index);
-router.post("/", homeController.store);
+router.post("/", alunoController.store);
 
 export default router;
