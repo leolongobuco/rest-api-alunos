@@ -11,5 +11,6 @@ module.exports = {
   rules: {
     "no-console": "off",
     quotes: "double",
+    "no-param-reassing": "off",
   },
 };
