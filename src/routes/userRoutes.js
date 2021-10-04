@@ -1,7 +1,7 @@
 import { Router } from "express";
 import userController from "../controllers/UserController";
 import logRequests from "../middlewares/logRequests";
-
+import loginRequired from "../middlewares/loginRequired";
 const router = new Router();
 
 router.use(logRequests);
@@ -10,7 +10,7 @@ router.use(logRequests);
 router.post("/", userController.store);
 router.get("/", userController.index);
 router.get("/:userId", userController.show);
-router.put("/:userId", userController.update);
+router.put("/:userId", loginRequired, userController.update);
 router.delete("/:userId", userController.delete);
 
 export default router;
