@@ -6,7 +6,6 @@ const router = new Router();
 
 router.use(logRequests);
 
-//Rotas Alunos
 router.post("/", tokenController.store);
 
 export default router;

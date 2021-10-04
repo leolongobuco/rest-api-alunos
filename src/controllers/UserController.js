@@ -25,13 +25,16 @@ class UserController {
   async show(req, res) {
     try {
       const { userId } = req.params;
+
       if (!userId) {
         return res.status(400).json({
           errors: ["Missing ID"],
         });
       }
+
       const user = await User.findByPk(userId);
       const { id, nome, email } = user;
+
       if (!user) {
         return res.status(400).json({
           errors: ["User doesn't exist"],

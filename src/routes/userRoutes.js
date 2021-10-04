@@ -6,7 +6,6 @@ const router = new Router();
 
 router.use(logRequests);
 
-//Rotas Users
 router.post("/", userController.store);
 router.get("/", userController.index);
 router.get("/:userId", userController.show);
