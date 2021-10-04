@@ -10,7 +10,7 @@ router.use(logRequests);
 router.post("/", userController.store);
 router.get("/", userController.index);
 router.get("/:userId", userController.show);
-router.put("/:userId", loginRequired, userController.update);
-router.delete("/:userId", userController.delete);
+router.put("/", loginRequired, userController.update);
+router.delete("/", loginRequired, userController.delete);
 
 export default router;
