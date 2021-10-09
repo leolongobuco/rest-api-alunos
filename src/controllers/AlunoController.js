@@ -1,4 +1,5 @@
 import Aluno from "../models/Aluno";
+import File from "../models/File";
 
 class AlunoController {
   async store(req, res) {
@@ -24,7 +25,14 @@ class AlunoController {
           "peso",
           "altura",
         ],
-        order: [["id", "DESC"]],
+        order: [
+          ["id", "DESC"],
+          [File, "id", "DESC"],
+        ],
+        include: {
+          model: File,
+          attributes: ["id", "originalname", "filename"],
+        },
       });
       return res.status(200).json(alunos);
     } catch (error) {
@@ -41,7 +49,25 @@ class AlunoController {
         });
       }
 
-      const aluno = await Aluno.findByPk(userId);
+      const aluno = await Aluno.findByPk(userId, {
+        attributes: [
+          "id",
+          "nome",
+          "sobrenome",
+          "email",
+          "idade",
+          "peso",
+          "altura",
+        ],
+        order: [
+          ["id", "DESC"],
+          [File, "id", "DESC"],
+        ],
+        include: {
+          model: File,
+          attributes: ["id", "originalname", "filename"],
+        },
+      });
 
       if (!aluno) {
         return res.status(400).json({

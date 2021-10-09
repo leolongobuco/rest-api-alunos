@@ -13,10 +13,14 @@ class FileController {
         });
       }
 
-      const { originalname, filename } = req.file;
-      const { aluno_id } = req.body;
-      const file = await File.create({ originalname, filename, aluno_id });
-      return res.json(file);
+      try {
+        const { originalname, filename } = req.file;
+        const { aluno_id } = req.body;
+        await File.create({ originalname, filename, aluno_id });
+        return res.json({ originalname, filename, aluno_id });
+      } catch (error) {
+        return res.status(400).json("Aluno doesn't exist");
+      }
     });
   }
 }
