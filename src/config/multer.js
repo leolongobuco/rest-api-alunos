@@ -4,7 +4,7 @@ import { extname, resolve } from "path";
 const random = () => Math.floor(Math.random() * 10000 + 10000);
 
 const isImage = (typeFile) => {
-  if (typeFile === "image/png" || typeFile === "image/jpeg") return true;
+  return typeFile === "image/png" || typeFile === "image/jpeg";
 };
 
 export default {
