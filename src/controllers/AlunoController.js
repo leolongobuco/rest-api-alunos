@@ -14,7 +14,18 @@ class AlunoController {
 
   async index(req, res) {
     try {
-      const alunos = await Aluno.findAll();
+      const alunos = await Aluno.findAll({
+        attributes: [
+          "id",
+          "nome",
+          "sobrenome",
+          "email",
+          "idade",
+          "peso",
+          "altura",
+        ],
+        order: [["id", "DESC"]],
+      });
       return res.status(200).json(alunos);
     } catch (error) {
       return res.status(404).json(null);

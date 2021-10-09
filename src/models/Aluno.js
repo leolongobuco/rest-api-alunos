@@ -1,6 +1,6 @@
 import Sequelize, { Model } from "sequelize";
 
-export default class Alunos extends Model {
+export default class Aluno extends Model {
   static init(sequelize) {
     super.init(
       {
