@@ -31,7 +31,7 @@ class AlunoController {
         ],
         include: {
           model: File,
-          attributes: ["id", "originalname", "filename"],
+          attributes: ["url", "id", "originalname", "filename"],
         },
       });
       return res.status(200).json(alunos);
@@ -65,7 +65,7 @@ class AlunoController {
         ],
         include: {
           model: File,
-          attributes: ["id", "originalname", "filename"],
+          attributes: ["url", "id", "originalname", "filename"],
         },
       });
 

@@ -1,7 +1,9 @@
-export default (req, res, next) => {
-  const { method, url } = req;
+import appConfig from "../config/appConfig";
 
-  const log = `[METHOD: ${method.toUpperCase()} || URL: ${url}]`;
+export default (req, res, next) => {
+  const { method } = req;
+
+  const log = `[METHOD: ${method.toUpperCase()} || URL: ${appConfig.url}]`;
   console.log(log);
 
   return next();

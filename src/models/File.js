@@ -1,5 +1,5 @@
 import Sequelize, { Model } from "sequelize";
-
+import appConfig from "../config/appConfig";
 export default class Foto extends Model {
   static init(sequelize) {
     super.init(
@@ -20,6 +20,12 @@ export default class Foto extends Model {
             notEmpty: {
               msg: "This field cannot be empty",
             },
+          },
+        },
+        url: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return `${appConfig.url}/images/${this.getDataValue("filename")}`;
           },
         },
       },
