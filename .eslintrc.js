@@ -11,6 +11,10 @@ module.exports = {
   rules: {
     "no-console": "off",
     quotes: "double",
+<<<<<<< HEAD
     "class-method-use-this": "off",
+=======
+    "no-param-reassing": "off",
+>>>>>>> develop
   },
 };
